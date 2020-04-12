@@ -11,7 +11,6 @@ const ALL_POST=gql`
         getPosts{
             _id
             title
-            content
         }
     }
 `;
