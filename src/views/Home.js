@@ -5,12 +5,15 @@ import { useQuery } from 'react-apollo-hooks';
 import gql from 'graphql-tag';
 
 
-
 const ALL_POST=gql`
     query getPosts{
         getPosts{
             _id
             title
+            author{
+                first_name
+                _id
+            }
         }
     }
 `;
@@ -26,7 +29,7 @@ function Home(){
                     : (error 
                     ? <h1>Hubo un error {error}</h1>
                         : data.getPosts.map((post) => (
-                            <PostPreview _id={post._id} title={post.title}  />
+                            <PostPreview _id={post._id} title={post.title} author={post.author} />
                         ))
                     )
                 }    

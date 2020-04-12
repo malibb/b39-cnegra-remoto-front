@@ -10,8 +10,8 @@ function PostPreview({_id, title, author}){
             {title}
             </h2>
           </Link>
-          <p className="post-meta">Posted by
-            <Link to="#">Posteado por :</Link>
+          <p className="post-meta">
+            <Link to={`author/${author._id}`}>Posteado por :{author.first_name} </Link>
          </p>
         </div>
         </>
