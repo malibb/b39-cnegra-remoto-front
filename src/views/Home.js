@@ -29,7 +29,7 @@ function Home(){
                     : (error 
                     ? <h1>Hubo un error {error}</h1>
                         : data.getPosts.map((post) => (
-                            <PostPreview _id={post._id} title={post.title} author={post.author} />
+                            <PostPreview key={post._id} _id={post._id} title={post.title} author={post.author} />
                         ))
                     )
                 }    

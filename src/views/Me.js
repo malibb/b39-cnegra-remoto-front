@@ -1,10 +1,10 @@
 import React from 'react';
 import authHOC from './../utils/authHOC';
 
-function Update(){
+function Me(){
     return(<>
         CREATE
     </>)
 };
 
-export default authHOC(Update);
+export default authHOC(Me);
