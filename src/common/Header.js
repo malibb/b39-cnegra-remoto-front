@@ -4,6 +4,7 @@ function Header(props) {
     const [ title ] = useState(props.title);
     const [ subheading ] = useState(props.subheading);
     const cover = props.cover ? props.cover : url_img;
+
     return(
         <header className="masthead" style={{ backgroundImage: `url('${cover}')`}}>
         <div className="overlay"></div>
