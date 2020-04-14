@@ -1,8 +1,8 @@
 import React from 'react';
 import Layout from './../common/Layout';
+import PostPreview from './../components/PostPreview';
 import { useQuery } from 'react-apollo-hooks';
 import gql from 'graphql-tag';
-
 
 
 const ALL_POST=gql`
@@ -10,27 +10,29 @@ const ALL_POST=gql`
         getPosts{
             _id
             title
-            content
+            author{
+                first_name
+                _id
+            }
         }
     }
 `;
 
 function Home(){
     const { data, loading, error } = useQuery(ALL_POST);
-    if(loading) return <h1>¡Cargando!</h1>
-    if(error) return <h1>Hubo un error, intenta recargando. :c</h1>
     return(      
         <Layout head="MI BLOG FAVORITO: POSTEANDO" subheading="Crea una cuenta y empieza a postear">
             <main className="container">
                 {
-                    data.getPosts.map((post) => (
-                        <>
-                        <h2 class="post-title"> {post._id} </h2>
-                        <h2 class="post-title"> {post.title} </h2>
-                        <h3 class="post-subtitle"> {post.content}</h3>
-                        </>
-                    ))
-                }
+                    loading 
+                    ? <h1>Cargando!</h1>
+                    : (error 
+                    ? <h1>Hubo un error {error}</h1>
+                        : data.getPosts.map((post) => (
+                            <PostPreview _id={post._id} title={post.title} author={post.author} />
+                        ))
+                    )
+                }    
             </main>
         </Layout>
     );
