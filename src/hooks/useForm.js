@@ -1,7 +1,13 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function useForm(callback, current= {}){
     const [ inputs, setInputs] = useState(current);
+    useEffect(() => {
+        if (current.getPostById){
+            delete current.getPostById.__typename
+            setInputs({...current.getPostById})
+        }
+    }, [current]);
 
     const handleInputChange = event => {
         event.persist();

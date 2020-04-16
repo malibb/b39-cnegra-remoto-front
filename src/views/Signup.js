@@ -37,9 +37,9 @@ function Signup({history}){
 
     return(
         <Layout head="Registrate" subheading="Guarda tu contraseña en un lugar seguro">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-md-10 mx-auto">
+            <div className="container">
+                <div className="row">
+                    <div className="col-lg-8 col-md-10 mx-auto">
                         <form onSubmit={handleSubmit}>
                             <Input
                                 name="first_name"
@@ -86,7 +86,7 @@ function Signup({history}){
                                 change={handleInputChange}
                                 required={true}
                             />
-                            <div class="form-group">
+                            <div className="form-group">
                                 <button type="submit" className="btn btn-primary" id="sendMessageButton">Registrar</button>
                             </div>
                         </form>
