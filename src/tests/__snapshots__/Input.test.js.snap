@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Input/> Simple Rendering 1`] = `
+<div
+  className="control-group"
+>
+  <div
+    className="form-group floating-label-form-group controls"
+  >
+    <label
+      className="title-label"
+    />
+    <input
+      className="form-control"
+    />
+    <p
+      className="help-block text-danger"
+    />
+  </div>
+</div>
+`;

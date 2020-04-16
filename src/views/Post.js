@@ -29,12 +29,15 @@ function Post(){
     if(loading) return <Layout>CARGANDO</Layout> 
     if(error) return <Layout head="Hubo un error, intenta de nuevo."/>
     return(
-        <Layout 
+      <>
+        <Layout
         head={`${data.getPostById.title}`} 
         cover={data.getPostById.cover}
         subheading={`Post hecho por ${data.getPostById.author.first_name}`}>
             {data.getPostById.content}
         </Layout>
+        <div class="footer-post">@Postealo.com</div>
+      </>
     )
 };
 
