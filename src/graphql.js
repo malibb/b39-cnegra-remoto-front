@@ -4,7 +4,7 @@ import { createUploadLink } from 'apollo-upload-client';
 import { setContext } from 'apollo-link-context';
 import { InMemoryCache } from 'apollo-cache-inmemory'
 
-const API_URL = process.env.LINK_BACK || "http://localhost:4000";
+const API_URL = process.env.LINK_BACK || "https://b39-backend.herokuapp.com/";
 
 const httpLink = createUploadLink({uri: API_URL});
 
