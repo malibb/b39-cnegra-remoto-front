@@ -8,6 +8,7 @@ const ALL_POST=gql`
         getPosts{
             _id
             title
+            createdAt
             author{
                 first_name
                 _id
@@ -52,7 +53,12 @@ function Feed({profile}){
                         remove/>
                     ))
                     : data.getPosts.map((post) => (
-                        <PostPreview key={post._id} _id={post._id} title={post.title} author={post.author} />
+                        <PostPreview 
+                        key={post._id} 
+                        _id={post._id} 
+                        title={post.title} 
+                        author={post.author}
+                        date={post.createdAt} />
                     ))
                 )
             }    

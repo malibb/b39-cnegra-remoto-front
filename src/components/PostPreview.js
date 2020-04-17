@@ -7,8 +7,15 @@ const DELETE_POST = gql`
   deletePost(id:$id)
 }
 `;
-function PostPreview({_id, title, author, edit, remove}){
+function PostPreview({_id, title, author, date, edit, remove}){
     const [deletePost] = useMutation(DELETE_POST);
+
+    const getPrettyDate = (date) => {
+      const event = new Date(date);
+      const options = {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      return event.toLocaleDateString('es', options);
+    };
+
     return(
         <>
         <div className="post-preview">
@@ -18,6 +25,7 @@ function PostPreview({_id, title, author, edit, remove}){
             </h2>
           </Link>
           <p className="post-meta">
+            <h4>{getPrettyDate(date)}</h4>
             <Link to={`author/${author._id}`}>Posteado por :{author.first_name} </Link>
          </p>
          <p>
